@@ -1,0 +1,245 @@
+// Phan 1: dinh nghia cac doi tuong co ban trong web(mau,co,chu,mau chu...)
+//Cac anh su dung trong giao dien 
+$anhlogo:"iamges/logo.png";
+//Mau
+$mauxanhdam:#2d3e50;
+$mauchu:#2d3e50;
+$maulogo: #19bd9b;
+$maunut:#20303f;
+$maunensam:f9fafb;
+$mauchu:white;
+$mauchunhat:#a1b1bc;
+$mauvien:#edf0f1;
+//chu
+$fontchu:'Lato',
+sans-serif;
+$cochunho:13px;
+$cochuvua:14px;
+$cochumenu:15px;
+$cochutieude:30px;
+//cac chieu cao va rong 
+$topheight:50px;
+$logoheight:90px;
+$tieudeheight:120px;
+$tieudeheightmobile:28px;
+//co dung lai
+@mixin reset() {
+    margin: 0;
+    padding: 0;
+}
+
+@mixin nutslide() {
+    background: white;
+    color: $mauxanhdam;
+    height: auto;
+    padding: 11px 22px;
+    width: auto;
+    border-radius: 4px;
+}
+
+// css cho phan top
+body {
+    font-family: $fontchu;
+    font-size: $cochunho;
+    overflow-x: hidden;
+}
+
+.top {
+    height: $topheight;
+    line-height: $topheight;
+    background-color: $mauxanhdam;
+    color: $mauchu;
+    .top-ngonngu {
+        position: relative;
+        // &:hover {
+        //     .cacngonngu {
+        //         opacity: 1;
+        //         visibility: visible;
+        //         top: 50px;
+        //     }
+        // }
+        p {
+            cursor: pointer;
+            font-size: $cochuvua;
+        }
+        .cacngonngu {
+            position: absolute;
+            width: 155px;
+            background-color: $mauxanhdam;
+            z-index: 10;
+            top: 50px;
+            // opacity: 0;
+            // transform: 0.2s;
+            // visibility: hidden;
+            a {
+                display: block;
+                padding: 5px 10px;
+                color: $mauchu;
+                font-size: $cochunho;
+                line-height: 19px;
+                text-align: center;
+            }
+        }
+    }
+    //het top ngon ngu
+    .phai {
+        .nut {
+            display: inline;
+            a.btn {
+                font-size: $cochunho;
+                color: $mauchu;
+                background-color: $maunut;
+                height: 30px;
+                padding: auto 11px;
+                text-transform: uppercase;
+                font-weight: bold;
+                margin-right: 15px;
+                i {
+                    padding-right: 7px;
+                }
+            }
+        }
+        .caclink {
+            display: inline;
+            ul {
+                display: inline;
+                padding-left: 0px;
+                li {
+                    display: inline;
+                    list-style: none;
+                    a {
+                        color: $mauchu;
+                        font-size: $cochunho;
+                        padding-right: 15px;
+                    }
+                }
+            }
+        }
+        // het cac link
+    }
+}
+
+// xu ly phan menu va logo 
+.menuandlogo {
+    height: $logoheight;
+    line-height: $logoheight;
+    .menutop {
+        @include reset;
+        a.navbar-brand {
+            padding: 0;
+            margin: 0;
+        }
+        //het logo
+        .timkiem {
+            i {
+                font-size: $cochumenu;
+            }
+        }
+        ul.menuphai {
+            li.nav-item {
+                a.nav-link {
+                    @include reset;
+                    font-size: $cochumenu;
+                    padding-right: 26px;
+                    padding-left: 26px;
+                    text-transform: uppercase;
+                    font-weight: 900;
+                    color: $mauxanhdam;
+                }
+            }
+        }
+        //het menuphai
+    }
+    //het menutop
+}
+
+.tieude {
+    height: $tieudeheight;
+    line-height: $tieudeheight;
+    background-color: $maunensam;
+    position: relative;
+    &:after {
+        content: '';
+        width: 100%;
+        height: $tieudeheight/3;
+        position: absolute;
+        top: 0px;
+        background-image: -webkit-linear-gradient(top, #d2d2d2, #efeaea38);
+    }
+    .trai {
+        h2 {
+            height: $tieudeheight;
+            line-height: $tieudeheight;
+            font-size: $cochutieude;
+            color: $mauxanhdam;
+            a {
+                i {
+                    background-color: white;
+                    border: 1px solid $mauvien;
+                    border-radius: 3px;
+                    display: inline-block;
+                    padding: 5;
+                    height: 30px;
+                    width: 30px;
+                    color: $mauchunhat;
+                    font-size: $cochunho;
+                    text-align: center;
+                    line-height: 30px;
+                    &::before {
+                        position: relative;
+                        top: -4px;
+                    }
+                }
+            }
+        }
+    }
+    .phai {
+        .breadcrumb {
+            @include reset;
+            background-color: transparent;
+            .breadcrumb-item {
+                font-size: $cochuvua;
+                color: $mauchunhat;
+                &:first-child:before {
+                    content: '';
+                }
+                &:before {
+                    display: inline-block;
+                    padding-right: .5rem;
+                    padding-left: .5rem;
+                    color: #818a91;
+                    content: "\f105";
+                    font-family: "Font Awesome 5 Pro";
+                    font-weight: 900;
+                    -webkit-font-smoothing: antialiased;
+                    display: inline-block;
+                    font-style: normal;
+                    font-variant: normal;
+                    text-rendering: auto;
+                    line-height: 1;
+                }
+            }
+        }
+    }
+}
+
+.slideanh {
+    #slide01 {
+        a.carousel-control {
+            span.icon-next {
+                @include nutslide;
+            }
+            span.icon-prev {
+                @include nutslide;
+            }
+        }
+        a.carousel-control.right {
+            background: none;
+        }
+        a.carousel-control.left {
+            background: none;
+        }
+    }
+}
+
+@import "btmobile";
